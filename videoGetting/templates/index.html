@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="connect-src * 'unsafe-inline';">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/notie/dist/notie.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+    integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    /* override styles here */
+
+    body {
+      background-color: #F1F3F4;
+    }
+
+    .terminal {
+      background-color: black;
+      background-image: #272822;
+      height: 90vh;
+      margin: 0;
+      overflow: hidden;
+      padding: 2rem;
+      color: #75BFC2;
+      font: 1.3rem Inconsolata, monospace;
+      text-shadow: 0 0 5px #C8C8C8;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: repeating-linear-gradient(0deg,
+            rgba(black, 0.15),
+            rgba(black, 0.15) 1px,
+            transparent 1px,
+            transparent 2px);
+        pointer-events: none;
+      }
+    }
+
+    ::selection {
+      background: #0080FF;
+      text-shadow: none;
+    }
+
+    pre {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar sticky-top navbar-dark bg-dark mb-3"
+    style="background: linear-gradient(to right, #43c6ac, #191654)">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <h4 class="mx-5">GPH Ispat <i class="fa fa-video-camera text-danger" aria-hidden="true"></i></h4>
+      </a>
+      <div class="d-flex text-light me-2" id="status">
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid ">
+    <div class="row mx-4">
+
+      <div class="col-md-7 px-1 py-3">
+        <div style="background-color: white;" class="py-4">
+          <div class="my-2"><img class="mx-auto d-block"
+              src="{{ url_for('video') }}"
+              alt="Girl in a jacket" width="80%"></div>
+          <div><img class="mx-auto d-block"
+              src="{{ url_for('detectvideo') }}"
+              alt="Girl in a jacket" width="80%"></div>
+          <div class="text-center mt-3">
+            <button type="button" class="btn btn-outline-success">Hook</button>
+            <button type="button" class="btn btn-outline-danger">Unhook</button>
+          </div>
+        </div>
+
+      </div>
+
+
+
+      <div class="col-md-5">
+        <div class="terminal my-3">
+          <pre
+            style="overflow-x: hidden; overflow-y:auto"><output>webpack: Compiled successfully.
+            webpack: Compiling...
+            Hash: 33d8c38093d5e8261eac
+            Version: webpack 3.11.0
+            Time: 1337ms
+                                           Asset       Size  Chunks                    Chunk Names
+                                      project.js    12.3 MB       0  [emitted]  [big]  project
+                                    dashboard.js    6.36 MB       1  [emitted]  [big]  dashboard
+                                     organize.js    5.29 MB       2  [emitted]  [big]  organize
+                                      proPens.js    4.92 MB       3  [emitted]  [big]  proPens
+            0.81c79b4db476a98d272f.hot-update.js    87.4 kB       0  [emitted]         project
+            1.81c79b4db476a98d272f.hot-update.js    7.94 kB       1  [emitted]         dashboard
+            81c79b4db476a98d272f.hot-update.json   52 bytes          [emitted]
+                                   manifest.json  272 bytes          [emitted]
+            [./app/javascript/common/components/Overlay.js] ./app/javascript/common/components/Overlay.js 2.42 kB {0} {1} [built]</output></pre>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+  </div>
+
+
+
+
+  <!-- Bootstrap JS and Popper.js -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js"
+    integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/"
+    crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/notie"></script>
+  <script src="reconnecting-websocket.min.js"></script>
+</body>
+
+</html>
